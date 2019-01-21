@@ -1,4 +1,4 @@
-package asdf.c;
+package ito.akira.edson.ftpstreamingmessagesource;
 
 import java.io.InputStream;
 
@@ -30,7 +30,7 @@ import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Asdf {
+public class TestFtpStreamingMessageSource {
 
 	@Bean
 	public SessionFactory<FTPFile> ftpSessionFactory() {
@@ -60,7 +60,7 @@ public class Asdf {
 	@Bean
 	public MessageChannel stream() {
 		DirectChannel channel = new DirectChannel();
-		channel.addInterceptor(tap());
+//		channel.addInterceptor(tap());
 		return channel;
 	}
 
