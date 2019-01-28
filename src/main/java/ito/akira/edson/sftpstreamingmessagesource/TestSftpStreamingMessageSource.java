@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 import com.jcraft.jsch.ChannelSftp;
 
-@Component
+//@Component
 public class TestSftpStreamingMessageSource {
 
 	@Autowired

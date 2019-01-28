@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.amqp.outbound.AmqpOutboundEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
 
-@Configuration
+//@Configuration
 public class Adf {
 	
 	@Bean

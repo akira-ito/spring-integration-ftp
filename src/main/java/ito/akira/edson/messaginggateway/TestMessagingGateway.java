@@ -20,14 +20,14 @@ import org.springframework.integration.handler.LoggingHandler.Level;
 import org.springframework.messaging.MessageChannel;
 
 //@Configuration
-public class TestMessagingGateway implements CommandLineRunner{
+public class TestMessagingGateway /*implements CommandLineRunner*/{
 	
-	@MessagingGateway(defaultRequestChannel = "ftpLS", defaultReplyChannel = "results")
+//	@MessagingGateway(defaultRequestChannel = "ftpLS", defaultReplyChannel = "results")
 	public interface Gate {
 		List<File> list(String directory);
 	}
 	
-	@ServiceActivator(inputChannel = "ftpLS")
+//	@ServiceActivator(inputChannel = "ftpLS")
 	@Bean
 	public FtpOutboundGateway getGW() {
 		FtpOutboundGateway gateway = new FtpOutboundGateway(sf(), "ls", "payload");
@@ -70,10 +70,10 @@ public class TestMessagingGateway implements CommandLineRunner{
 	@Autowired
 	private Gate gate;
 
-	@Override
-	public void run(String... args) throws Exception {
-		List<File> files = gate.list(".");
-		System.out.println(files);
-	}
+//	@Override
+//	public void run(String... args) throws Exception {
+//		List<File> files = gate.list(".");
+//		System.out.println(files);
+//	}
 
 }
