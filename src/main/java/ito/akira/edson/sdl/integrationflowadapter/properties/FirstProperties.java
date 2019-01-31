@@ -25,7 +25,7 @@ public class FirstProperties {
 		private int maxFetchSize;
 		private String patternFileFilter;
 		private String metadataStorePrefix;
-		private List<String> poller;
+		private PollerProperties poller;
 		private RedisProperties redis;
 		private SftpProperties sftp;
 		private AmqpProperties amqp;
@@ -54,11 +54,11 @@ public class FirstProperties {
 			this.metadataStorePrefix = metadataStorePrefix;
 		}
 
-		public List<String> getPoller() {
+		public PollerProperties getPoller() {
 			return poller;
 		}
 
-		public void setPoller(List<String> poller) {
+		public void setPoller(PollerProperties poller) {
 			this.poller = poller;
 		}
 
@@ -84,6 +84,28 @@ public class FirstProperties {
 
 		public void setAmqp(AmqpProperties amqp) {
 			this.amqp = amqp;
+		}
+
+	}
+
+	public static class PollerProperties {
+		private String cron;
+		private Long maxMessagesPerPoll;
+
+		public String getCron() {
+			return cron;
+		}
+
+		public void setCron(String cron) {
+			this.cron = cron;
+		}
+
+		public Long getMaxMessagesPerPoll() {
+			return maxMessagesPerPoll;
+		}
+
+		public void setMaxMessagesPerPoll(Long maxMessagesPerPoll) {
+			this.maxMessagesPerPoll = maxMessagesPerPoll;
 		}
 
 	}
@@ -171,6 +193,8 @@ public class FirstProperties {
 	public static class AmqpProperties {
 		private String routeKey;
 		private String exchangeName;
+		private String queueName;
+		private String deadLetterRouteKey;
 
 		public String getRouteKey() {
 			return routeKey;
@@ -186,6 +210,22 @@ public class FirstProperties {
 
 		public void setExchangeName(String exchangeName) {
 			this.exchangeName = exchangeName;
+		}
+
+		public String getQueueName() {
+			return queueName;
+		}
+
+		public void setQueueName(String queueName) {
+			this.queueName = queueName;
+		}
+
+		public String getDeadLetterRouteKey() {
+			return deadLetterRouteKey;
+		}
+
+		public void setDeadLetterRouteKey(String deadLetterRouteKey) {
+			this.deadLetterRouteKey = deadLetterRouteKey;
 		}
 
 	}

@@ -30,7 +30,7 @@ public class TestSftpStreamingMessageSource {
 	private SftpRemoteFileTemplate sftpRemoteFileTemplate;
 
 	@Bean
-	@InboundChannelAdapter(channel = "stream", poller = @Poller(cron = "0 * * * * *"))
+	@InboundChannelAdapter(channel = "stream", poller = {@Poller(cron = "0 * * * * *"), @Poller(cron = "0 * * * * *")})
 //	@InboundChannelAdapter(channel = "stream", poller = {@Poller(fixedRate = "1000", maxMessagesPerPoll = "1000")})
 	public MessageSource<InputStream> ftpMessageSource(ConcurrentMetadataStore metadataStore) {
 		SftpStreamingMessageSource messageSource = new SftpStreamingMessageSource(sftpRemoteFileTemplate);
